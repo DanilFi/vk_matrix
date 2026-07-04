@@ -1,43 +1,27 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	   
 	<meta charset="utf-8">
-	   
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-	    <title>VK Game</title>
-	    <style>
+	<title>VK Game</title>
+	<style>
 		body {
 			margin: 0;
 			background: #000;
 			overflow: hidden;
 		}
-
 		#canvas {
 			display: block;
 			width: 100vw;
 			height: 100vh;
 		}
 	</style>
-	    <!-- ИСПРАВЛЕНО: Подключаем именно VK Bridge SDK -->
-	   
-	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-	   
-	<script>
-		// Инициализируем SDK платформы ВКонтакте
-		vkBridge.send('VKWebAppInit')
-			.then(data => console.log('VK Bridge успешно запущен!'))
-			.catch(err => console.error('Ошибка VK:', err));
-	</script>
-<script src="/sdk.js"></script>
-<script src="webbus_sdk.js"></script>
-<div id="responsive-banner-container" hidden="hidden" style="width: 728px; height: 90px; position: fixed; bottom:0; z-index:9999"></div><script src="webbus_sdk.js"></script>
 </head>
-
 <body>
-	    <canvas id="canvas"></canvas>
-	    $$GODOT_SCRIPT$$
+	<canvas id="canvas"></canvas>
+	<!-- Подключаем WebBus SDK (только один раз!) -->
+	<script src="webbus_sdk.js"></script>
+	<!-- Код Godot вставляется сюда автоматически -->
+	$$GODOT_SCRIPT$$
 </body>
-
 </html>
