@@ -108,7 +108,18 @@ body {
 			<progress id="status-progress"></progress>
 			<div id="status-notice"></div>
 		</div>
-
+		<script>
+    // Эмулируем vkBridge для теста (только для отладки!)
+    if (typeof window.vkBridge === 'undefined') {
+        window.vkBridge = {
+            send: function(method, params) {
+                console.warn('Эмуляция vkBridge.send:', method, params);
+                return Promise.resolve({});
+            }
+        };
+        console.warn('vkBridge эмулирован (только для теста!)');
+    }
+	</script>
 		<script src="index.js"></script>
 		<script>
 const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":58819920,"index.wasm":37896978},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
